@@ -36,7 +36,7 @@ void ViewInventDLG::DoDataExchange(CDataExchange* pDX)
 	DDX_Control(pDX, IDC_LIST_PRICE, priceList);
 
 	CString str;
-	UINT num;
+	//UINT num;
 	stock->resetPostion();
 	Node* pCurrent = NULL; 
 	while (stock->getPosition() != NULL){
@@ -45,7 +45,7 @@ void ViewInventDLG::DoDataExchange(CDataExchange* pDX)
 		str.Format(_T("%u"), pCurrent->quant);
 		quantList.AddString(str);
 		descriptList.AddString(pCurrent->descript);
-		str.Format(_T("%.2f"), pCurrent->price);
+		str.Format(_T("$ %.2f"), pCurrent->price);
 		priceList.AddString(str);
 	}
 

@@ -32,6 +32,9 @@
 #define IDD_DIALOG1                     310
 #define IDD_DIALOG_ADD                  310
 #define IDD_DIALOG_INVENTORY            311
+#define IDD_DIALOG_REMOVE               312
+#define IDD_DIALOG_CART                 313
+#define IDD_DIALOG_INVENT               316
 #define IDC_LIST_DESCRIPT               1000
 #define IDC_LIST_PRICE                  1001
 #define IDC_LIST_QUANT                  1002
@@ -42,17 +45,25 @@
 #define IDC_EDIT_PRICE                  1006
 #define IDC_OK                          1007
 #define ID_BTN_ADD                      1007
+#define IDC_COMBO1                      1008
+#define IDC_COMBO_STOCKNUM              1008
+#define IDC_COMBO_QUANT                 1013
+#define IDC_LIST_CART                   1017
+#define IDC_LIST1                       1019
+#define IDC_LIST_INVENT                 1019
 #define ID_Menu                         32771
 #define ID_MENU_ADD                     32772
 #define ID_MENU_VIEWINVENTORY           32773
+#define ID_MENU_REMOVEFROMCART          32774
+#define ID_MENU_SHOWCART                32775
 
 // Next default values for new objects
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        312
-#define _APS_NEXT_COMMAND_VALUE         32774
-#define _APS_NEXT_CONTROL_VALUE         1008
+#define _APS_NEXT_RESOURCE_VALUE        317
+#define _APS_NEXT_COMMAND_VALUE         32776
+#define _APS_NEXT_CONTROL_VALUE         1020
 #define _APS_NEXT_SYMED_VALUE           310
 #endif
 #endif

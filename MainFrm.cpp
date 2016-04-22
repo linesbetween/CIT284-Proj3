@@ -4,9 +4,7 @@
 
 #include "stdafx.h"
 #include "Project3.h"
-//#include "AddDlg.h"
 #include "MainFrm.h"
-//#include "ViewInventDLG.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -24,6 +22,8 @@ BEGIN_MESSAGE_MAP(CMainFrame, CFrameWndEx)
 	ON_UPDATE_COMMAND_UI_RANGE(ID_VIEW_APPLOOK_WIN_2000, ID_VIEW_APPLOOK_WINDOWS_7, &CMainFrame::OnUpdateApplicationLook)
 	ON_COMMAND(ID_MENU_ADD, &CMainFrame::OnMenuAdd)
 	ON_COMMAND(ID_MENU_VIEWINVENTORY, &CMainFrame::OnMenuViewinventory)
+	ON_COMMAND(ID_MENU_REMOVEFROMCART, &CMainFrame::OnMenuRemovefromcart)
+	ON_COMMAND(ID_MENU_SHOWCART, &CMainFrame::OnMenuShowcart)
 END_MESSAGE_MAP()
 
 static UINT indicators[] =
@@ -257,7 +257,23 @@ void CMainFrame::OnMenuAdd()
 void CMainFrame::OnMenuViewinventory()
 {
 	// TODO: Add your command handler code here
-	ViewInventDLG dlgInvent(&stockList);
+	InventDlg dlgInvent(&stockList);
 	
 	dlgInvent.DoModal();
+}
+
+
+void CMainFrame::OnMenuRemovefromcart()
+{
+	// TODO: Add your command handler code here
+	RemoveDlg removeDlg(&stockList, &cartList);
+	removeDlg.DoModal();
+}
+
+
+void CMainFrame::OnMenuShowcart()
+{
+	// TODO: Add your command handler code here
+	CartDlg cartDlg(&cartList);
+	cartDlg.DoModal();
 }

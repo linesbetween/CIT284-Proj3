@@ -41,7 +41,7 @@ public:
 	}
 
 	bool isEmpty(){
-		return pFirst == NULL;
+		return (pFirst == NULL);
 	}
 
 
@@ -123,8 +123,9 @@ public:
 		cout << "Searching list \n";
 		if (pCurrent == NULL) {//list in empty
 			cout << "    List is empty \n";
+			return;
 		}
-		else{
+		else{//search node and move pCurrent
 			while (pCurrent != NULL && pCurrent->stockNum != stockNum){
 				pPrev = pCurrent;
 				pCurrent = pCurrent->pNext;
@@ -132,8 +133,9 @@ public:
 			}
 		}
 
-		if (pCurrent == NULL) {//list in empty
+		if (pCurrent == NULL) {//pCurrent moved out of end
 			cout << "    NOT found \n";
+			return;
 		}
 		else{
 			cout << "    Found \n";

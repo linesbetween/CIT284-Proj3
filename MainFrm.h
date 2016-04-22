@@ -2,12 +2,14 @@
 // MainFrm.h : interface of the CMainFrame class
 //
 
-
-#include "AddDlg.h"
-//#include "MainFrm.h"
-#include "ViewInventDLG.h"
-//#include "LinkedList.h"
 #pragma once
+#include "AddDlg.h"
+#include "ViewInventDLG.h"
+#include "InventDlg.h"
+//#include "LinkedList.h"
+#include "RemoveDlg.h"
+#include "CartDlg.h"
+
 
 
 class CMainFrame : public CFrameWndEx
@@ -54,6 +56,8 @@ protected:
 public:
 	afx_msg void OnMenuAdd();
 	afx_msg void OnMenuViewinventory();
+	afx_msg void OnMenuRemovefromcart();
+	afx_msg void OnMenuShowcart();
 };
 
 
