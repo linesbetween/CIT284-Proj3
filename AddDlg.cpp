@@ -123,7 +123,7 @@ void AddDlg::OnBnClickedBtnAdd() //TODO< when quant == 0, quantcombo
 	if (stockNumStr.IsEmpty() || quantInt == 0){
 		MessageBox(_T("All fiels must be filled"), _T("Add to cart"), MB_ICONERROR);
 		clearStockListCombo();
-		clearQuantCombo();
+
 		clearDescript();
 		clearPrice();
 		clearExtension();

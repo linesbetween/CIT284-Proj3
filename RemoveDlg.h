@@ -9,6 +9,7 @@ class RemoveDlg : public CDialogEx
 	DECLARE_DYNAMIC(RemoveDlg)
 
 private:
+	void calcuBill();
 	void clearDescript();
 	void clearPrice();
 	void clearQuant();
@@ -35,8 +36,8 @@ private:
 	LinkedList* stockList;
 	LinkedList* cartList;
 	CString stockNumStr, descriptStr, quantStr, priceStr, extensionStr;
-	UINT quantInt = 0, quantInCartInt;
-	DOUBLE priceDbl = 0;
+	UINT quantInt , quantInCartInt;
+	DOUBLE priceDbl , billAmount;
 	int idxStockNum, idxQuant;
 
 public:

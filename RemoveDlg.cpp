@@ -14,13 +14,18 @@ IMPLEMENT_DYNAMIC(RemoveDlg, CDialogEx)
 RemoveDlg::RemoveDlg(CWnd* pParent /*=NULL*/)
 	: CDialogEx(RemoveDlg::IDD, pParent)
 {
-
+	quantInt = 0;
+	priceDbl = 0;
+	billAmount = 0;
 }
 
 RemoveDlg::RemoveDlg(LinkedList* stockList, LinkedList* cartList, CWnd* pParent) 
 	: CDialogEx(RemoveDlg::IDD, pParent){
 	this->stockList = stockList;
 	this->cartList = cartList;
+	quantInt = 0;
+	priceDbl = 0;
+	billAmount = 0;
 }
 
 RemoveDlg::~RemoveDlg()
@@ -83,6 +88,7 @@ void RemoveDlg::OnCbnSelchangeComboStocknum()
 		editExtension.SetWindowTextW(extensionStr);
 
 		//initialize quant  list
+		clearQuant();
 		CString str;
 		for (int i = 1; i <= quantInCartInt; ++i){
 			str.Format(_T("%d"), i);
@@ -115,7 +121,7 @@ void RemoveDlg::OnBnClickedOk()
 {
 
 	if (stockNumStr.IsEmpty() || quantInt == 0){
-		AfxMessageBox(_T("All fiels must be filled"));
+		MessageBox(_T("All fiels must be filled"), _T("Remove cart"), MB_ICONERROR);
 		clearStockNum();
 		clearQuant();
 		clearDescript();
@@ -142,9 +148,16 @@ void RemoveDlg::OnBnClickedOk()
 			}
 			
 		}
-			
+			 
 		pFromStock->quant += quantInt;
-		MessageBox(_T("Removed from cart"), _T("Remove"), MB_ICONINFORMATION);
+		calcuBill();
+		CString billAmountStr, billReducedStr;
+		billAmountStr.Format(_T("%.2f"), billAmount);
+		billReducedStr.Format(_T("%.2f"), pRemoved->price*quantInt);
+		MessageBox(_T("Item " + stockNumStr + " Removed from cart \n" +
+			"Reduced from Bill: " + billReducedStr + "\n" +
+			"Current Bill: " + billAmountStr)
+			, _T("Remove"),			MB_ICONINFORMATION);
 
 		//TODO delete item when quant == 0
 
@@ -167,6 +180,16 @@ void RemoveDlg::OnBnClickedCancel()
 	clearDescript();
 	clearPrice();
 	CDialogEx::OnCancel();
+}
+
+void RemoveDlg::calcuBill(){
+	Node* pCurrent = NULL;
+	billAmount = 0;
+	cartList->resetPostion();
+	while (cartList->getPosition() != NULL){
+		pCurrent = cartList->getAndMovePosition();
+		billAmount += pCurrent->price * pCurrent->quant;
+	}
 }
 
 void RemoveDlg::clearStockNum(){
