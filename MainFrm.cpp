@@ -24,6 +24,7 @@ BEGIN_MESSAGE_MAP(CMainFrame, CFrameWndEx)
 	ON_COMMAND(ID_MENU_VIEWINVENTORY, &CMainFrame::OnMenuViewinventory)
 	ON_COMMAND(ID_MENU_REMOVEFROMCART, &CMainFrame::OnMenuRemovefromcart)
 	ON_COMMAND(ID_MENU_SHOWCART, &CMainFrame::OnMenuShowcart)
+	ON_COMMAND(ID_MENU_QUIT, &CMainFrame::OnMenuQuit)
 END_MESSAGE_MAP()
 
 static UINT indicators[] =
@@ -276,4 +277,14 @@ void CMainFrame::OnMenuShowcart()
 	// TODO: Add your command handler code here
 	CartDlg cartDlg(&cartList);
 	cartDlg.DoModal();
+}
+
+
+void CMainFrame::OnMenuQuit()
+{
+	// TODO: Add your command handler code here
+	int result;
+	result = MessageBox(_T("Are you sure? "), _T("Exiting"), MB_ICONQUESTION | MB_YESNO);
+	if (result == IDYES)
+		DestroyWindow();
 }

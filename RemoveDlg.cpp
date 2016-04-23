@@ -120,12 +120,25 @@ void RemoveDlg::OnBnClickedOk()
 		Node* pRemoved = cartList->getNode(stockNumStr);
 		Node* pFromStock = stockList->getNode(stockNumStr);
 
-		if (quantInt == quantInCartInt)
+		pRemoved->quant -= quantInt;
+		if (pRemoved->quant == 0){ //TODO delete item.
 			cartList->deleteNode(stockNumStr);
-		else
-			pRemoved->quant -= quantInt;
+			cartList->printList();
+			//TODO reload comboStockNum
+			cartList->resetPostion();
+			//comboStockNum.ResetContent();
+			//comboStockNum.AddString(_T("Place holder")); //works
+			
+			Node* pCurrent = NULL;
+			while (cartList->getPosition() != NULL){
+				pCurrent = cartList->getAndMovePosition();
+				comboStockNum.AddString(pCurrent->stockNum);
+			}
+			
+		}
+			
 		pFromStock->quant += quantInt;
-		AfxMessageBox(_T("Removed from cart"));
+		MessageBox(_T("Removed from cart"), _T("Remove"), MB_ICONINFORMATION);
 
 		//TODO delete item when quant == 0
 
@@ -161,6 +174,7 @@ void RemoveDlg::clearQuant(){
 	comboQuant.SetCurSel(-1);
 	quantInt = 0;
 	quantStr = _T("0");
+	comboQuant.ResetContent();
 }
 
 void RemoveDlg::clearDescript(){

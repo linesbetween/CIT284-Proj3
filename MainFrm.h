@@ -58,6 +58,7 @@ public:
 	afx_msg void OnMenuViewinventory();
 	afx_msg void OnMenuRemovefromcart();
 	afx_msg void OnMenuShowcart();
+	afx_msg void OnMenuQuit();
 };
 
 

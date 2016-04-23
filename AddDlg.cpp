@@ -129,7 +129,7 @@ void AddDlg::OnBnClickedBtnAdd() //TODO< when quant == 0, quantcombo
 
 		Node* pAdded = stock->getNode(stockNumStr);
 		pAdded->quant -= quantInt;
-		AfxMessageBox(_T("Added to cart"));
+		MessageBox(_T("Added to cart"), _T("Add to cart"), MB_ICONINFORMATION);
 		
 		clearStockListCombo();
 		clearQuantCombo();
@@ -154,6 +154,7 @@ void AddDlg::clearQuantCombo(){
 	comboQuant.SetCurSel(-1);
 	quantInt = 0;
 	quantStr = _T("0");
+	comboQuant.ResetContent();
 }
 
 void AddDlg::clearDescript(){
