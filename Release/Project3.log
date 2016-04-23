@@ -1,9 +1,21 @@
-﻿Build started 4/23/2016 12:09:02 PM.
+﻿Build started 4/23/2016 2:35:40 PM.
      1>Project "C:\Users\Fei\Documents\HP2\Documents\Visual Studio 2013\Projects\Project3\Project3.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /sdl /O2 /Oi /Oy- /GL /D WIN32 /D _WINDOWS /D NDEBUG /D _UNICODE /D UNICODE /Gm- /EHsc /MT /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Yu"stdafx.h" /Fp"Release\Project3.pch" /Fo"Release\\" /Fd"Release\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt RemoveDlg.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /sdl /O2 /Oi /Oy- /GL /D WIN32 /D _WINDOWS /D NDEBUG /D _UNICODE /D UNICODE /Gm- /EHsc /MT /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Yu"stdafx.h" /Fp"Release\Project3.pch" /Fo"Release\\" /Fd"Release\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt AddDlg.cpp CartDlg.cpp InventDlg.cpp MainFrm.cpp Project3.cpp Project3Doc.cpp Project3View.cpp RemoveDlg.cpp ViewInventDLG.cpp
+         AddDlg.cpp
+     1>AddDlg.cpp(96): warning C4018: '<=' : signed/unsigned mismatch
+         CartDlg.cpp
+         InventDlg.cpp
+         MainFrm.cpp
+     1>MainFrm.cpp(67): warning C4101: 'bNameValid' : unreferenced local variable
+         Project3.cpp
+         Project3Doc.cpp
+         Project3View.cpp
          RemoveDlg.cpp
-     1>RemoveDlg.cpp(82): warning C4018: '<=' : signed/unsigned mismatch
+     1>RemoveDlg.cpp(87): warning C4018: '<=' : signed/unsigned mismatch
+         ViewInventDLG.cpp
+       ResourceCompile:
+         C:\Program Files (x86)\Windows Kits\8.1\bin\x86\rc.exe /D NDEBUG /D _UNICODE /D UNICODE /l"0x0409" /IRelease\ /nologo /fo"Release\Project3.res" Project3.rc 
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Fei\Documents\HP2\Documents\Visual Studio 2013\Projects\Project3\Release\Project3.exe" /INCREMENTAL:NO /NOLOGO /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /manifestinput:"C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\Include\Manifest\dpiaware.manifest" /DEBUG /PDB:"C:\Users\Fei\Documents\HP2\Documents\Visual Studio 2013\Projects\Project3\Release\Project3.pdb" /SUBSYSTEM:WINDOWS /OPT:REF /OPT:ICF /LTCG /TLBID:1 /ENTRY:"wWinMainCRTStartup" /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Fei\Documents\HP2\Documents\Visual Studio 2013\Projects\Project3\Release\Project3.lib" /MACHINE:X86 /SAFESEH Release\Project3.res
          Release\AddDlg.obj
@@ -23,4 +35,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:03.70
+Time Elapsed 00:00:05.98

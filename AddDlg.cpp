@@ -46,6 +46,7 @@ void AddDlg::DoDataExchange(CDataExchange* pDX)
 		comboStockList.AddString(pCurrent->stockNum);
 	}
 	DDX_Control(pDX, IDC_COMBO_QUANT, comboQuant);
+	DDX_Control(pDX, IDC_EDIT_EXTENSION, editExtension);
 }
 
 
@@ -69,22 +70,30 @@ void AddDlg::OnCbnSelchangeComboStocknum()
 		clearDescript();
 		clearPrice();
 		clearQuant();
+		clearExtension();
 		return;
 	}
 	else{
 		comboStockList.GetLBText(idxStockNum, stockNumStr);
 		Node* pSel = stock->getNode(stockNumStr);
-		quantInStockInt = pSel->quant;
-		descriptStr = pSel->descript;
-		descript.SetWindowTextW(descriptStr);
-		priceDbl = pSel->price;
-		priceStr.Format(_T("%.2f"), priceDbl);
-		price.SetWindowTextW(priceStr);
-
+		if (pSel->quant == 0){//if out of stock
+			MessageBox(_T("Item " + stockNumStr + " is OUT OF STOCK"), _T("Add to cart"), MB_ICONSTOP);
+			clearStockListCombo();
+		}
+		else{
+			quantInStockInt = pSel->quant;
+			descriptStr = pSel->descript;
+			descript.SetWindowTextW(descriptStr);
+			priceDbl = pSel->price;
+			priceStr.Format(_T("%.2f"), priceDbl);
+			price.SetWindowTextW(priceStr);
+			extensionStr = pSel->extension;
+			editExtension.SetWindowTextW(extensionStr);
+		}
+		//Initialize quantcombo
 		clearQuantCombo();
-
 		CString str;
-		for (int i = 1; i <= quantInStockInt; ++i){
+		for (int i = 1; i <= pSel->quant; ++i){
 			str.Format(_T("%d"), i);
 			comboQuant.AddString(str);
 		}
@@ -97,7 +106,7 @@ void AddDlg::OnCbnSelchangeComboQuant()
 	idxQuant = comboQuant.GetCurSel();
 
 	if (idxStockNum <= -1){ //if item is not seletect yet
-		AfxMessageBox(_T("You must choose item first"));
+		MessageBox(_T("You must choose item first"), _T("Add to cart"),MB_ICONERROR);
 		clearQuantCombo();
 		return;
 	}
@@ -112,16 +121,16 @@ void AddDlg::OnBnClickedBtnAdd() //TODO< when quant == 0, quantcombo
 {
 	//check empty field
 	if (stockNumStr.IsEmpty() || quantInt == 0){
-		AfxMessageBox(_T("All fiels must be filled"));
+		MessageBox(_T("All fiels must be filled"), _T("Add to cart"), MB_ICONERROR);
 		clearStockListCombo();
 		clearQuantCombo();
 		clearDescript();
 		clearPrice();
-		
+		clearExtension();
 	}
 	else{
 		if (cart->getNode(stockNumStr) == NULL){
-			cart->insertNode(stockNumStr, quantInt, descriptStr, priceDbl);
+			cart->insertNode(stockNumStr, quantInt, descriptStr, priceDbl, extensionStr);
 		}
 		else{
 			cart->getNode(stockNumStr)->quant += quantInt;
@@ -135,6 +144,7 @@ void AddDlg::OnBnClickedBtnAdd() //TODO< when quant == 0, quantcombo
 		clearQuantCombo();
 		clearDescript();
 		clearPrice();
+		clearExtension();
 	}
 }
 
@@ -166,6 +176,11 @@ void AddDlg::clearPrice(){
 	price.SetWindowTextW(_T(""));
 	priceStr = _T("");
 	priceDbl = 0;
+}
+
+void AddDlg::clearExtension(){
+	editExtension.SetWindowTextW(_T(""));
+	extensionStr = _T("");
 }
 
 

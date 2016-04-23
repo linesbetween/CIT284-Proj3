@@ -49,12 +49,13 @@ void InventDlg::InitListCtrlCols()
 	// Insert some columns
 	CRect rect;
 	listCtrlInvent.GetClientRect(&rect);
-	int nColInterval = rect.Width() / 8;
+	int nColInterval = rect.Width() / 9;
 
 	listCtrlInvent.InsertColumn(0, _T("Stock Number"), LVCFMT_LEFT, nColInterval * 2);
 	listCtrlInvent.InsertColumn(1, _T("Quantity"), LVCFMT_LEFT, nColInterval);
 	listCtrlInvent.InsertColumn(2, _T("Description"), LVCFMT_LEFT, nColInterval * 3);
 	listCtrlInvent.InsertColumn(4, _T("Price per item"), LVCFMT_LEFT, nColInterval * 2);
+	listCtrlInvent.InsertColumn(5, _T("Extension"), LVCFMT_LEFT, nColInterval);
 }
 
 void InventDlg::InsertItems(){
@@ -92,6 +93,11 @@ void InventDlg::InsertItems(){
 		str.Format(_T("$ %.2f"), pCurrent->price);
 		lvi.iSubItem = 3;
 		lvi.pszText = (LPTSTR)(LPCTSTR)(str);
+		listCtrlInvent.SetItem(&lvi);
+
+		// Set extension
+		lvi.iSubItem = 4;
+		lvi.pszText = (LPTSTR)(LPCTSTR)(pCurrent->extension);
 		listCtrlInvent.SetItem(&lvi);
 
 		++idx;

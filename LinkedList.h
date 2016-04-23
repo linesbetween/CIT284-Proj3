@@ -9,21 +9,22 @@ using namespace std;
 /////////////////////////////////Node
 class Node {
 public:
-	CString stockNum, descript;
+	CString stockNum, descript, extension;
 	UINT quant;
 	DOUBLE price;
 	Node *pNext;
 
-	Node(CString stockNum, int quant, CString descript, double price){
+	Node(CString stockNum, int quant, CString descript, double price, CString extension = _T("")){
 		this->quant = quant;
 		this->price = price;
 		this->stockNum = stockNum;
 		this->descript = descript;
+		this->extension = extension;
 		pNext = NULL;
 	}
 
 	void printNode(){
-		cout << "Stock Num: " << stockNum << ", Quant: " << quant << ", Price: " << price <<"\n";
+		cout << "Stock Num: " << stockNum << ", Quant: " << quant << ", Price: " << price << ", Extension: " << extension << "\n";
 	}
 
 };
@@ -45,8 +46,9 @@ public:
 	}
 
 
-	void insertNode(CString stockNum, int quant, CString descript, double price){
-		Node* pNewNode = new Node(stockNum, quant, descript, price);
+	void insertNode(CString stockNum, int quant, CString descript, double price, CString extension = _T(""
+		)){
+		Node* pNewNode = new Node(stockNum, quant, descript, price,extension);
 		cout << "\ninserting node "; pNewNode->printNode(); cout << endl;
 		Node* pCurrent = pFirst;
 		Node* pPrev = pFirst;

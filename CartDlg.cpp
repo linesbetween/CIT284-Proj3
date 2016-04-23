@@ -47,12 +47,13 @@ void CartDlg::InitListCtrlCols()
 	// Insert some columns
 	CRect rect;
 	listCtrlCart.GetClientRect(&rect);
-	int nColInterval = rect.Width() / 8;
+	int nColInterval = rect.Width() / 9;
 
 	listCtrlCart.InsertColumn(0, _T("Stock Number"), LVCFMT_LEFT, nColInterval*2);
 	listCtrlCart.InsertColumn(1, _T("Quantity"), LVCFMT_LEFT, nColInterval);
 	listCtrlCart.InsertColumn(2, _T("Description"), LVCFMT_LEFT, nColInterval * 3);
-	listCtrlCart.InsertColumn(4, _T("Price per item"), LVCFMT_LEFT, nColInterval * 2);
+	listCtrlCart.InsertColumn(3, _T("Price per item"), LVCFMT_LEFT, nColInterval * 2);
+	listCtrlCart.InsertColumn(4, _T("Extension"), LVCFMT_LEFT, nColInterval);
 }
 
 void CartDlg:: InsertItems(){
@@ -92,6 +93,12 @@ void CartDlg:: InsertItems(){
 			lvi.iSubItem = 3;
 			lvi.pszText = (LPTSTR)(LPCTSTR)(str);
 			listCtrlCart.SetItem(&lvi);
+
+			// Set extension
+			lvi.iSubItem = 4;
+			lvi.pszText = (LPTSTR)(LPCTSTR)(pCurrent->extension);
+			listCtrlCart.SetItem(&lvi);
+
 
 			++idx;
 		}

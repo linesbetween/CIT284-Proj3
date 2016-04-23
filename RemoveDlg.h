@@ -13,6 +13,7 @@ private:
 	void clearPrice();
 	void clearQuant();
 	void clearStockNum();
+	void clearExtension();
 
 public:
 	RemoveDlg(CWnd* pParent = NULL);   // standard constructor
@@ -33,7 +34,7 @@ private:
 
 	LinkedList* stockList;
 	LinkedList* cartList;
-	CString stockNumStr, descriptStr, quantStr, priceStr;
+	CString stockNumStr, descriptStr, quantStr, priceStr, extensionStr;
 	UINT quantInt = 0, quantInCartInt;
 	DOUBLE priceDbl = 0;
 	int idxStockNum, idxQuant;
@@ -43,8 +44,11 @@ public:
 	CComboBox comboQuant;
 	CEdit editDescript;
 	CEdit editPrice;
+	CEdit editExtension;
+
 	afx_msg void OnCbnSelchangeComboStocknum();
 	afx_msg void OnCbnSelchangeComboQuant();
 	afx_msg void OnBnClickedOk();
 	afx_msg void OnBnClickedCancel();
+
 };

@@ -44,8 +44,15 @@ CMainFrame::CMainFrame()
 
 	stockList.insertNode(_T("A100"), 20, _T("Hammer"), 9.95);
 	stockList.insertNode(_T("A250"), 25, _T("Saw"), 13.95);
-	stockList.insertNode(_T("B400"), 50, _T("Flat-Head Nails"), 11.99);
+	stockList.insertNode(_T("B400"), 50, _T("Flat-Head Nails"), 11.99,_T("Gross"));
 	stockList.insertNode(_T("C888"), 50, _T("Flat_Head Screwdriver"), 39.9);
+	stockList.insertNode(_T("A449"), 75, _T("Pliers"), 4.95);
+	stockList.insertNode(_T("C667"), 50, _T("Drill"), 22.95);
+	stockList.insertNode(_T("B875"), 70, _T("plumber's wrench"), 11.90);
+	stockList.insertNode(_T("D547"), 60, _T("Ladder 10 foot"), 70.44);
+	stockList.insertNode(_T("A910"), 85, _T("Flashlight 10 inch"), 9.99);
+	stockList.insertNode(_T("B123"), 90, _T("Assorted Buss Fuses"), 4.99);
+
 }
 
 CMainFrame::~CMainFrame()

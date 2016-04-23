@@ -51,6 +51,8 @@
 #define IDC_LIST_CART                   1017
 #define IDC_LIST1                       1019
 #define IDC_LIST_INVENT                 1019
+#define IDC_EDIT_EXTENSION              1020
+#define IDC_EDIT1                       1021
 #define ID_Menu                         32771
 #define ID_MENU_ADD                     32772
 #define ID_MENU_VIEWINVENTORY           32773
@@ -64,7 +66,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        317
 #define _APS_NEXT_COMMAND_VALUE         32777
-#define _APS_NEXT_CONTROL_VALUE         1020
+#define _APS_NEXT_CONTROL_VALUE         1022
 #define _APS_NEXT_SYMED_VALUE           310
 #endif
 #endif

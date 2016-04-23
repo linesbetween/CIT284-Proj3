@@ -34,6 +34,7 @@ void RemoveDlg::DoDataExchange(CDataExchange* pDX)
 	DDX_Control(pDX, IDC_COMBO_QUANT, comboQuant);
 	DDX_Control(pDX, IDC_EDIT_DESCRIPT, editDescript);
 	DDX_Control(pDX, IDC_EDIT_PRICE, editPrice);
+	DDX_Control(pDX, IDC_EDIT_EXTENSION, editExtension);
 
 	//initialize stock number list
 	cartList->resetPostion();
@@ -42,6 +43,7 @@ void RemoveDlg::DoDataExchange(CDataExchange* pDX)
 		pCurrent = cartList->getAndMovePosition();
 		comboStockNum.AddString(pCurrent->stockNum);
 	}
+	
 }
 
 
@@ -64,6 +66,7 @@ void RemoveDlg::OnCbnSelchangeComboStocknum()
 		clearDescript();
 		clearPrice();
 		clearQuant();
+		clearExtension();
 		return;
 	}
 	else{
@@ -76,6 +79,8 @@ void RemoveDlg::OnCbnSelchangeComboStocknum()
 		priceDbl = pSel->price;
 		priceStr.Format(_T("%.2f"), priceDbl);
 		editPrice.SetWindowTextW(priceStr);
+		extensionStr = pSel->extension;
+		editExtension.SetWindowTextW(extensionStr);
 
 		//initialize quant  list
 		CString str;
@@ -115,6 +120,7 @@ void RemoveDlg::OnBnClickedOk()
 		clearQuant();
 		clearDescript();
 		clearPrice();
+		clearExtension();
 	}
 	else{
 		Node* pRemoved = cartList->getNode(stockNumStr);
@@ -146,7 +152,7 @@ void RemoveDlg::OnBnClickedOk()
 		clearQuant();
 		clearDescript();
 		clearPrice();
-		
+		clearExtension();
 		//CDialogEx::OnOK();
 	}
 }
@@ -187,3 +193,9 @@ void RemoveDlg::clearPrice(){
 	priceStr = _T("");
 	priceDbl = 0;
 }
+
+void RemoveDlg::clearExtension(){
+	editExtension.SetWindowTextW(_T(""));
+	extensionStr = _T("");
+}
+

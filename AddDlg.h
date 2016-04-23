@@ -14,6 +14,7 @@ private:
 	void clearQuant();
 	void clearDescript();
 	void clearPrice();
+	void clearExtension();
 public:
 	AddDlg(CWnd* pParent = NULL);   // standard constructor
 	AddDlg(LinkedList* stockList, LinkedList* cartList, CWnd* pParent = NULL);
@@ -30,7 +31,7 @@ protected:
 private:
 	LinkedList* stock;
 	LinkedList* cart;
-	CString stockNumStr, descriptStr, quantStr, priceStr;
+	CString stockNumStr, descriptStr, quantStr, priceStr,extensionStr;
 	UINT quantInt = 0, quantInStockInt;
 	DOUBLE priceDbl = 0;
 	int idxStockNum, idxQuant;
@@ -40,6 +41,7 @@ public:
 	CEdit quant;
 	CEdit descript;
 	CEdit price;
+	CEdit editExtension;
 	CComboBox comboStockList;
 	CComboBox comboQuant;
 	
