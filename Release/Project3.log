@@ -1,0 +1,22 @@
+﻿Build started 4/22/2016 9:08:39 PM.
+     1>Project "C:\Users\Spectre_X360\Documents\Visual Studio 2013\Projects\Project3\Project3.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /sdl /O2 /Oi /Oy- /GL /D WIN32 /D _WINDOWS /D NDEBUG /D _UNICODE /D UNICODE /Gm- /EHsc /MT /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Yu"stdafx.h" /Fp"Release\Project3.pch" /Fo"Release\\" /Fd"Release\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt AddDlg.cpp
+         AddDlg.cpp
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Spectre_X360\Documents\Visual Studio 2013\Projects\Project3\Release\Project3.exe" /INCREMENTAL:NO /NOLOGO /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /manifestinput:"C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\Include\Manifest\dpiaware.manifest" /DEBUG /PDB:"C:\Users\Spectre_X360\Documents\Visual Studio 2013\Projects\Project3\Release\Project3.pdb" /SUBSYSTEM:WINDOWS /OPT:REF /OPT:ICF /LTCG /TLBID:1 /ENTRY:"wWinMainCRTStartup" /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Spectre_X360\Documents\Visual Studio 2013\Projects\Project3\Release\Project3.lib" /MACHINE:X86 /SAFESEH Release\Project3.res
+         Release\AddDlg.obj
+         Release\MainFrm.obj
+         Release\Project3.obj
+         Release\Project3Doc.obj
+         Release\Project3View.obj
+         Release\stdafx.obj
+         Release\ViewInventDLG.obj
+         Generating code
+         Finished generating code
+         Project3.vcxproj -> C:\Users\Spectre_X360\Documents\Visual Studio 2013\Projects\Project3\Release\Project3.exe
+     1>Done Building Project "C:\Users\Spectre_X360\Documents\Visual Studio 2013\Projects\Project3\Project3.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:05.14
